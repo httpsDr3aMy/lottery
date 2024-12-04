@@ -57,6 +57,7 @@ Po zalogowaniu użytkownik może wybrać liczby, wziąć udział w losowaniu i s
   <li><strong>Dockerfile</strong> – plik do budowy obrazu kontenera dla aplikacji, używany w połączeniu z Docker Compose.</li>
 </ul>
 
-![localhost_index php](https://github.com/user-attachments/assets/75bb23b6-fe83-48a3-899f-a72d05c4e606)
+
+![localhost_index php](https://github.com/user-attachments/assets/bee117ce-07f5-48f6-83d3-84fa9edcf3a2)
 
 
