@@ -1,0 +1,36 @@
+version: "3"
+services:
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=lottery
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=supersecurepassword
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"
+    restart: always
+
+  www:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./src:/var/www/html"
+      - "./includes:/var/www/includes"
+
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - db
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8001:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+    restart: always
